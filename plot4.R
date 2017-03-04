@@ -9,7 +9,7 @@ unzip("week1dataset.zip")
 # read data
 household_power_consumption <- read.table("household_power_consumption.txt", header = TRUE, sep =';', stringsAsFactors=FALSE, dec=".") # read txt to data.frame
 
-# get only complete cases, filter by dates, set Global_active_power as numeric value
+# get only complete cases, filter by dates,convert data
 household_power_consumption <- household_power_consumption[complete.cases(household_power_consumption[,3:9]),]
 household_power_consumption <- household_power_consumption[household_power_consumption$Date %in% c("1/2/2007","2/2/2007") ,]
 household_power_consumption$Global_active_power <- as.numeric(household_power_consumption$Global_active_power,3)
